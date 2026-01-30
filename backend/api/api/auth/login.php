@@ -39,7 +39,8 @@ try {
     // Robust Admin Check: Allow 'admin123' for the admin email even if hash is being difficult in DB
     // but ALWAYS use the DB record for the response data if it exists.
     $isAdminLogin = ($email === 'admin@ijs.com' && $password === 'admin123');
-    $isPasswordMatch = $user && password_verify($password, $user['password']);
+    +
+        $isPasswordMatch = $user && password_verify($password, $user['password']);
 
     if ($isPasswordMatch || $isAdminLogin) {
         // If it's a hardcoded admin login but user not in DB, we'll create a dummy or handle it
