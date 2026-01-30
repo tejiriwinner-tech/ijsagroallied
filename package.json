@@ -1,0 +1,52 @@
+{
+    "name": "ijsagroallied-monorepo",
+    "version": "1.0.0",
+    "description": "Ijs Agroallied e-commerce platform - monorepo root",
+    "private": true,
+    "workspaces": [
+        "frontend",
+        "backend"
+    ],
+    "scripts": {
+        "dev": "npm run dev:frontend",
+        "dev:frontend": "cd frontend && npm run dev",
+        "dev:backend": "cd backend && npm run serve",
+        "dev:all": "bash scripts/dev-all.sh",
+        "build": "npm run build:frontend",
+        "build:frontend": "cd frontend && npm run build",
+        "start": "npm run start:frontend",
+        "start:frontend": "cd frontend && npm run start",
+        "lint": "npm run lint:frontend",
+        "lint:frontend": "cd frontend && npm run lint",
+        "test": "jest",
+        "test:validation": "jest src/validation/__tests__",
+        "test:frontend": "cd frontend && npm test",
+        "test:backend": "cd backend && npm run test:api",
+        "validate": "ts-node src/validation/cli.ts",
+        "validate:build": "ts-node src/validation/cli.ts --build",
+        "db:import": "cd backend && npm run db:import",
+        "db:backup": "cd backend && npm run db:backup",
+        "db:restore": "cd backend && npm run db:restore",
+        "clean": "npm run clean:frontend && npm run clean:backend",
+        "clean:frontend": "cd frontend && rm -rf .next node_modules",
+        "clean:backend": "cd backend && rm -rf node_modules",
+        "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+    },
+    "keywords": [
+        "ecommerce",
+        "nextjs",
+        "php",
+        "monorepo"
+    ],
+    "author": "Ijs Agroallied & Farm Multilinks Ltd",
+    "license": "proprietary",
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "typescript": "^5.0.0",
+        "ts-node": "^10.9.0",
+        "jest": "^29.0.0",
+        "@types/jest": "^29.0.0",
+        "ts-jest": "^29.0.0"
+    },
+    "dependencies": {}
+}

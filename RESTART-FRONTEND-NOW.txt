@@ -1,0 +1,42 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║              🚨 YOU MUST RESTART THE FRONTEND 🚨             ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+The error you're seeing:
+  "SyntaxError: Unexpected token '<'"
+
+Means: Frontend is using the WRONG URL (old one)
+
+Why: Next.js only reads .env.local when it STARTS
+
+Fix: RESTART THE SERVER
+
+┌──────────────────────────────────────────────────────────────┐
+│                                                               │
+│  1. Go to terminal running frontend                          │
+│                                                               │
+│  2. Press: Ctrl + C                                          │
+│                                                               │
+│  3. Run: npm run dev                                         │
+│                                                               │
+│  4. Wait for "✓ Ready"                                       │
+│                                                               │
+│  5. Hard refresh browser (Ctrl + Shift + R)                  │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+After restart, browser console should show:
+  🌐 API_BASE_URL configured as: http://localhost/ijsagroallied/backend/api/api
+
+NOT:
+  🌐 API_BASE_URL configured as: http://localhost/backend/api/api
+
+═══════════════════════════════════════════════════════════════
+
+Your backend is WORKING! ✅
+The .env.local file is CORRECT! ✅
+You just need to RESTART! 🔄
+
+═══════════════════════════════════════════════════════════════

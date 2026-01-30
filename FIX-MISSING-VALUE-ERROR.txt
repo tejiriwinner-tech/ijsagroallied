@@ -1,0 +1,82 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║         FIX: "Missing value in the form!" Error              ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+PROBLEM: phpMyAdmin doesn't like the file format
+
+SOLUTION: Import in 2 simple steps
+
+═══════════════════════════════════════════════════════════════
+
+STEP 1: IMPORT TABLES
+═══════════════════════════════════════════════════════════════
+
+1. Open: http://localhost/phpmyadmin
+2. Click: "Import" tab
+3. Choose file: backend/database/schema-simple.sql
+4. Click: "Go"
+5. Wait for: "Import has been successfully finished"
+
+═══════════════════════════════════════════════════════════════
+
+STEP 2: IMPORT DATA
+═══════════════════════════════════════════════════════════════
+
+1. Still in phpMyAdmin
+2. Click: "Import" tab again
+3. Choose file: backend/database/data-inserts.sql
+4. Click: "Go"
+5. Wait for: "Import has been successfully finished"
+
+═══════════════════════════════════════════════════════════════
+
+ALTERNATIVE: COPY & PASTE METHOD
+═══════════════════════════════════════════════════════════════
+
+If import still fails:
+
+1. Open schema-simple.sql in Notepad
+2. Copy ALL text (Ctrl+A, Ctrl+C)
+3. Go to phpMyAdmin → SQL tab
+4. Paste and click "Go"
+5. Repeat for data-inserts.sql
+
+═══════════════════════════════════════════════════════════════
+
+VERIFY IT WORKED:
+═══════════════════════════════════════════════════════════════
+
+In phpMyAdmin:
+1. Click "ijs_agroallied" database (left sidebar)
+2. Should see 9 tables
+3. Click "users" table → Browse
+4. Should see admin@ijs.com
+
+═══════════════════════════════════════════════════════════════
+
+FILES TO USE:
+═══════════════════════════════════════════════════════════════
+
+✅ backend/database/schema-simple.sql (FIRST)
+✅ backend/database/data-inserts.sql (SECOND)
+
+❌ Don't use the other schema files
+
+═══════════════════════════════════════════════════════════════
+
+WHAT YOU'LL GET:
+═══════════════════════════════════════════════════════════════
+
+✅ 9 tables created
+✅ 1 admin user (admin@ijs.com / admin123)
+✅ 3 categories
+✅ 7 products
+✅ 4 chick batches
+
+═══════════════════════════════════════════════════════════════
+
+READ MORE: IMPORT-DATABASE-STEPS.md
+
+═══════════════════════════════════════════════════════════════

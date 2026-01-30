@@ -1,0 +1,69 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║              DATABASE SCHEMA - COMPLETE & FIXED              ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+FILE TO USE:
+  backend/database/schema-complete.sql
+
+WHAT WAS FIXED:
+  ✅ Added INSERT IGNORE (prevents duplicate errors)
+  ✅ Added proper character encoding (UTF-8)
+  ✅ Added indexes for better performance
+  ✅ Added ON DELETE CASCADE for foreign keys
+  ✅ Fixed decimal precision for prices
+  ✅ Added verification queries
+
+═══════════════════════════════════════════════════════════════
+
+EASIEST WAY TO IMPORT:
+═══════════════════════════════════════════════════════════════
+
+1. Open: http://localhost/phpmyadmin
+
+2. Click: "Import" tab
+
+3. Click: "Choose File"
+
+4. Select: backend/database/schema-complete.sql
+
+5. Click: "Go" button at bottom
+
+6. Wait for: "Import has been successfully finished"
+
+═══════════════════════════════════════════════════════════════
+
+VERIFY IT WORKED:
+═══════════════════════════════════════════════════════════════
+
+In phpMyAdmin, click "SQL" tab and run:
+
+  USE ijs_agroallied;
+  SELECT COUNT(*) FROM users;
+
+Should show: 1 (the admin user)
+
+═══════════════════════════════════════════════════════════════
+
+WHAT YOU'LL GET:
+═══════════════════════════════════════════════════════════════
+
+✅ 9 Tables created
+✅ 1 Admin user (admin@ijs.com / admin123)
+✅ 3 Categories
+✅ 3 Subcategories  
+✅ 7 Products
+✅ 4 Chick batches
+
+═══════════════════════════════════════════════════════════════
+
+IF YOU GET ERRORS:
+═══════════════════════════════════════════════════════════════
+
+"Table already exists" = OK! Script handles this
+"Duplicate entry" = OK! Script uses INSERT IGNORE
+
+Other errors? Read: DATABASE-SETUP-GUIDE.md
+
+═══════════════════════════════════════════════════════════════

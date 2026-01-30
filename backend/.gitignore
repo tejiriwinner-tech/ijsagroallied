@@ -1,0 +1,52 @@
+# Environment Configuration
+.env
+config/.env
+
+# Logs
+logs/
+*.log
+
+# Uploads
+uploads/
+*.tmp
+
+# Cache
+cache/
+*.cache
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*.sql.gz
+
+# Composer (if used)
+vendor/
+composer.lock
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Database dumps (except schema)
+*.sql
+!database/schema.sql
+
+# Session files
+sessions/
+
+# Error logs
+error.log
+php_errors.log

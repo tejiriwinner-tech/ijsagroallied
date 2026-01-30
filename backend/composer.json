@@ -1,0 +1,38 @@
+{
+    "name": "ijsagroallied/backend-api",
+    "description": "PHP REST API for Ijs Agroallied e-commerce platform",
+    "type": "project",
+    "license": "proprietary",
+    "version": "1.0.0",
+    "require": {
+        "php": ">=7.4",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "phpmailer/phpmailer": "^6.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "IjsAgroallied\\": "api/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IjsAgroallied\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "serve": "php -S localhost:8000 -t api",
+        "db:import": "mysql -u root -p ijs_agroallied < database/schema.sql"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}

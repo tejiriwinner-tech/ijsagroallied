@@ -1,0 +1,23 @@
+{
+    "name": "ijsagroallied-backend",
+    "version": "1.0.0",
+    "description": "Backend API server for Ijs Agroallied e-commerce platform",
+    "private": true,
+    "scripts": {
+        "serve": "php -S localhost:8000 -t api",
+        "db:import": "mysql -u root -p ijs_agroallied < database/schema.sql",
+        "db:backup": "bash scripts/backup-database.sh",
+        "db:restore": "bash scripts/restore-database.sh",
+        "test:api": "bash scripts/test-api.sh"
+    },
+    "keywords": [
+        "php",
+        "rest-api",
+        "mysql",
+        "backend"
+    ],
+    "author": "Ijs Agroallied & Farm Multilinks Ltd",
+    "license": "proprietary",
+    "devDependencies": {},
+    "dependencies": {}
+}
