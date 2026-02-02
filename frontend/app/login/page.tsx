@@ -115,7 +115,7 @@ function LoginForm() {
               </Link>
             </div>
 
-            <p className="text-xs text-foreground text-center mt-4">Demo admin: admin@ijs.com / admin123</p>
+
           </form>
         </TabsContent>
 
