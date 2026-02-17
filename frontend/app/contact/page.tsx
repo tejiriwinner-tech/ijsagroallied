@@ -25,8 +25,8 @@ const contactMethods = [
     icon: Phone,
     title: "Call Us",
     description: "Mon-Sat from 8am to 6pm",
-    value: "+234 801 234 5678",
-    action: "tel:+2348012345678",
+    value: "+234 806 845 1057",
+    action: "tel:+2348068451057",
   },
   {
     icon: Mail,
@@ -39,8 +39,8 @@ const contactMethods = [
     icon: MessageCircle,
     title: "WhatsApp",
     description: "Quick responses",
-    value: "+234 801 234 5678",
-    action: "https://wa.me/2348012345678",
+    value: "+234 806 845 1057",
+    action: "https://wa.me/2348068451057",
   },
 ]
 
@@ -257,8 +257,8 @@ export default function ContactPage() {
                 <div className="absolute inset-0 flex items-center justify-center bg-primary-dark/50">
                   <div className="text-center text-white">
                     <MapPin className="w-8 h-8 mx-auto mb-2" />
-                    <p className="font-medium">123 Farm Road, Ibadan</p>
-                    <p className="text-sm opacity-80">Oyo State, Nigeria</p>
+                    <p className="font-medium">Zone D, Maraba Loko, Orozo</p>
+                    <p className="text-sm opacity-80">Abuja, Nigeria</p>
                   </div>
                 </div>
               </div>
