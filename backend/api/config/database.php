@@ -1,7 +1,7 @@
 <?php
 // Database configuration - Update these values for your production database
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'ijs_agroallied');
+define('DB_NAME', 'mv_agricultural_consult');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 

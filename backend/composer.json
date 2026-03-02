@@ -1,6 +1,6 @@
 {
-    "name": "ijsagroallied/backend-api",
-    "description": "PHP REST API for Ijs Agroallied e-commerce platform",
+    "name": "mvagriculturalconsult/backend-api",
+    "description": "PHP REST API for MV Agricultural Consult e-commerce platform",
     "type": "project",
     "license": "proprietary",
     "version": "1.0.0",
@@ -17,18 +17,18 @@
     },
     "autoload": {
         "psr-4": {
-            "IjsAgroallied\\": "api/"
+            "MvAgriculturalConsult\\": "api/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IjsAgroallied\\Tests\\": "tests/"
+            "MvAgriculturalConsult\\Tests\\": "tests/"
         }
     },
     "scripts": {
         "test": "phpunit",
         "serve": "php -S localhost:8000 -t api",
-        "db:import": "mysql -u root -p ijs_agroallied < database/schema.sql"
+        "db:import": "mysql -u root -p mv_agricultural_consult < database/schema.sql"
     },
     "config": {
         "optimize-autoloader": true,

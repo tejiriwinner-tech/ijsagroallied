@@ -1,6 +1,6 @@
 # Project Scripts
 
-This directory contains utility scripts for development, testing, and deployment of the Ijs Agroallied e-commerce platform.
+This directory contains utility scripts for development, testing, and deployment of the MV Agricultural Consult e-commerce platform.
 
 ## Quick Start
 

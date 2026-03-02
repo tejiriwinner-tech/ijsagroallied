@@ -49,8 +49,8 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="font-serif text-xl font-bold">Ijs Agroallied</h3>
-                <p className="text-sm text-white/70">Farm Multilinks Ltd</p>
+                <h3 className="font-serif text-xl font-bold">MV Agricultural Consult</h3>
+                <p className="text-sm text-white/70">mvagriculturalconsult.com</p>
               </div>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
@@ -160,8 +160,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent" />
-                <a href="mailto:info@ijsagroallied.com" className="text-white/80 hover:text-accent transition-colors">
-                  info@ijsagroallied.com
+                <a href="mailto:info@mvagriculturalconsult.com" className="text-white/80 hover:text-accent transition-colors">
+                  info@mvagriculturalconsult.com
                 </a>
               </li>
             </ul>
@@ -171,7 +171,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/60 text-sm">
-            © {new Date().getFullYear()} Ijs Agroallied & Farm Multilinks Ltd. All rights reserved.
+            © {new Date().getFullYear()} MV Agricultural Consult. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}

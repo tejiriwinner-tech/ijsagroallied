@@ -32,8 +32,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "We reply within 24 hours",
-    value: "info@ijsagroallied.com",
-    action: "mailto:info@ijsagroallied.com",
+    value: "info@mvagriculturalconsult.com",
+    action: "mailto:info@mvagriculturalconsult.com",
   },
   {
     icon: MessageCircle,

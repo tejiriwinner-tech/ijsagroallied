@@ -49,7 +49,7 @@ try {
     if (!$user) {
         // Don't reveal if email exists or not for security
         echo json_encode([
-            "success" => true, 
+            "success" => true,
             "message" => "If an account with that email exists, a password reset link has been sent."
         ]);
         exit;
@@ -60,7 +60,7 @@ try {
         $stmt = $pdo->prepare("SHOW TABLES LIKE 'password_resets'");
         $stmt->execute();
         $tableExists = $stmt->fetch();
-        
+
         if (!$tableExists) {
             // Create the table if it doesn't exist
             $createTableSQL = "
@@ -110,8 +110,8 @@ try {
 
     // Send password reset email
     $resetLink = "http://localhost:3000/reset-password?token=" . $resetToken;
-    $subject = "Password Reset - IJS Agroallied";
-    
+    $subject = "Password Reset - MV Agricultural Consult";
+
     $htmlMessage = "
     <html>
     <head>
@@ -128,12 +128,12 @@ try {
     <body>
         <div class='container'>
             <div class='header'>
-                <h1>IJS Agroallied</h1>
+                <h1>MV Agricultural Consult</h1>
                 <h2>Password Reset Request</h2>
             </div>
             <div class='content'>
                 <p>Hello {$user['name']},</p>
-                <p>You requested a password reset for your IJS Agroallied account.</p>
+                <p>You requested a password reset for your MV Agricultural Consult account.</p>
                 <p>Click the button below to reset your password:</p>
                 <p style='text-align: center;'>
                     <a href='{$resetLink}' class='button'>Reset Password</a>
@@ -144,20 +144,20 @@ try {
                 <p>If you didn't request this reset, please ignore this email and your password will remain unchanged.</p>
             </div>
             <div class='footer'>
-                <p>Best regards,<br>IJS Agroallied Team</p>
+                <p>Best regards,<br>MV Agricultural Consult Team</p>
                 <p>This is an automated message, please do not reply to this email.</p>
             </div>
         </div>
     </body>
     </html>
     ";
-    
+
     $textMessage = "
-    Password Reset - IJS Agroallied
+    Password Reset - MV Agricultural Consult
     
     Hello {$user['name']},
     
-    You requested a password reset for your IJS Agroallied account.
+    You requested a password reset for your MV Agricultural Consult account.
     
     Please visit this link to reset your password:
     {$resetLink}
@@ -167,22 +167,22 @@ try {
     If you didn't request this reset, please ignore this email.
     
     Best regards,
-    IJS Agroallied Team
+    MV Agricultural Consult Team
     ";
 
     // Try to send email
     $emailSent = sendEmail($email, $subject, $htmlMessage, $textMessage);
-    
+
     if ($emailSent) {
         echo json_encode([
-            "success" => true, 
+            "success" => true,
             "message" => "Password reset link has been sent to your email address."
         ]);
     } else {
         // If email fails, still return success but log the error
         error_log("Failed to send password reset email to: " . $email);
         echo json_encode([
-            "success" => true, 
+            "success" => true,
             "message" => "Password reset link has been sent to your email address.",
             "debug_reset_link" => $resetLink, // For development - remove in production
             "debug_note" => "Email sending failed, but token was created. Check console for reset link."

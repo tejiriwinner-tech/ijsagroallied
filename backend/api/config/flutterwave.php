@@ -27,7 +27,7 @@ class Flutterwave
             ],
             'meta' => $metadata,
             'customizations' => [
-                'title' => 'Ijs Agroallied',
+                'title' => 'MV Agricultural Consult',
                 'description' => 'Payment for items in cart',
                 'logo' => 'https://placeholder.svg'
             ]

@@ -44,13 +44,12 @@ export default function Header() {
             <div className="relative">
               <img
                 src="/ijslogo.png"
-                alt="IJS Agroallied Logo"
+                alt="MV Agricultural Consult Logo"
                 className="w-12 h-12 object-contain"
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-serif text-lg font-bold text-primary leading-tight">Ijs Agroallied</h1>
-              <p className="text-xs text-foreground">& Farm Multilinks Ltd</p>
+              <h1 className="font-serif text-lg font-bold text-primary leading-tight">MV Agricultural Consult</h1>
             </div>
           </Link>
 

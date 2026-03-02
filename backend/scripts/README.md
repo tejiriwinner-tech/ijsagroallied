@@ -1,6 +1,6 @@
 # Backend Utility Scripts
 
-This directory contains utility scripts for managing the Ijs Agroallied backend API.
+This directory contains utility scripts for managing the MV Agricultural Consult backend API.
 
 ## Available Scripts
 
@@ -77,7 +77,7 @@ Tests API endpoints to verify they're working correctly.
 ./test-api.sh http://localhost:8000
 
 # Test production server
-./test-api.sh https://api.ijsagroallied.com
+./test-api.sh https://api.mvagriculturalconsult.com
 ```
 
 **Tests Included:**
@@ -177,7 +177,7 @@ php scripts/api-tester.php --all
 php scripts/api-tester.php --module=auth
 
 # Test against staging server
-php scripts/api-tester.php --all --url=https://staging.ijsagroallied.com
+php scripts/api-tester.php --all --url=https://staging.mvagriculturalconsult.com
 ```
 
 **CI/CD Integration:**
@@ -247,7 +247,7 @@ Run tests after deployment:
 
 ```bash
 # In your deployment script
-./backend/scripts/test-api.sh https://api.ijsagroallied.com
+./backend/scripts/test-api.sh https://api.mvagriculturalconsult.com
 if [ $? -ne 0 ]; then
     echo "API tests failed! Rolling back..."
     # Rollback logic here

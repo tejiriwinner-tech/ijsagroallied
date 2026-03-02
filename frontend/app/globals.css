@@ -2,7 +2,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Custom green and dark yellow color scheme for IJS Agroallied */
+/* Custom green and dark yellow color scheme for MV Agricultural Consult */
 :root {
   --background: oklch(0.985 0.002 110);
   --foreground: oklch(0.1 0.02 150);
@@ -244,10 +244,3 @@
 .stagger-4 {
   animation-delay: 0.4s;
 }
-
-
-
-
-
-
-

@@ -14,7 +14,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "Ijs Agroallied & Farm Multilinks Ltd",
+  title: "MV Agricultural Consult",
   description:
     "Your trusted partner for quality poultry feeds, day-old chicks, veterinary drugs, and farm supplies in Nigeria.",
   keywords: ["poultry", "chicken feeds", "day old chicks", "farm supplies", "Nigeria", "agriculture"],

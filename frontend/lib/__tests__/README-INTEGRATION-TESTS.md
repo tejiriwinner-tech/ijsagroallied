@@ -29,13 +29,13 @@ The PHP backend server must be running and accessible. If using XAMPP:
 Create and configure the test database:
 
 ```sql
-CREATE DATABASE ijs_agroallied_test;
+CREATE DATABASE mv_agricultural_consult_test;
 ```
 
 Apply the schema:
 
 ```bash
-mysql -u root -p ijs_agroallied_test < backend/database/schema.sql
+mysql -u root -p mv_agricultural_consult_test < backend/database/schema.sql
 ```
 
 ### 3. Admin User Authentication
@@ -60,7 +60,7 @@ export TEST_INTEGRATION=true
 
 # Optional: Configure test database (if different from defaults)
 export TEST_DB_HOST=localhost
-export TEST_DB_NAME=ijs_agroallied_test
+export TEST_DB_NAME=mv_agricultural_consult_test
 export TEST_DB_USER=root
 export TEST_DB_PASS=
 ```
@@ -146,7 +146,7 @@ If cleanup fails between test runs:
 
 1. Manually clean the test database:
    ```sql
-   USE ijs_agroallied_test;
+   USE mv_agricultural_consult_test;
    DELETE FROM subcategories;
    DELETE FROM categories;
    ```
@@ -198,7 +198,7 @@ Example GitHub Actions:
   env:
     TEST_INTEGRATION: true
     TEST_DB_HOST: localhost
-    TEST_DB_NAME: ijs_agroallied_test
+    TEST_DB_NAME: mv_agricultural_consult_test
   run: |
     cd frontend
     npm test -- --testTimeout=180000

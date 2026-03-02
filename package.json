@@ -1,7 +1,7 @@
 {
-    "name": "ijsagroallied-monorepo",
+    "name": "mvagriculturalconsult-monorepo",
     "version": "1.0.0",
-    "description": "Ijs Agroallied e-commerce platform - monorepo root",
+    "description": "MV Agricultural Consult e-commerce platform - monorepo root",
     "private": true,
     "workspaces": [
         "frontend",
@@ -38,7 +38,7 @@
         "php",
         "monorepo"
     ],
-    "author": "Ijs Agroallied & Farm Multilinks Ltd",
+    "author": "MV Agricultural Consult",
     "license": "proprietary",
     "devDependencies": {
         "@types/node": "^20.0.0",

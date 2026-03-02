@@ -33,7 +33,7 @@ NEXT_PUBLIC_PHP_API_URL=http://localhost/backend/api/api
 
 #### Production
 ```env
-NEXT_PUBLIC_PHP_API_URL=https://api.ijsagroallied.com/api
+NEXT_PUBLIC_PHP_API_URL=https://api.mvagriculturalconsult.com/api
 ```
 
 #### Custom Port (e.g., PHP built-in server on port 8000)

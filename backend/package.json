@@ -1,11 +1,11 @@
 {
-    "name": "ijsagroallied-backend",
+    "name": "mvagriculturalconsult-backend",
     "version": "1.0.0",
-    "description": "Backend API server for Ijs Agroallied e-commerce platform",
+    "description": "Backend API server for MV Agricultural Consult e-commerce platform",
     "private": true,
     "scripts": {
         "serve": "php -S localhost:8000 -t api",
-        "db:import": "mysql -u root -p ijs_agroallied < database/schema.sql",
+        "db:import": "mysql -u root -p mv_agricultural_consult < database/schema.sql",
         "db:backup": "bash scripts/backup-database.sh",
         "db:restore": "bash scripts/restore-database.sh",
         "test:api": "bash scripts/test-api.sh"
@@ -16,7 +16,7 @@
         "mysql",
         "backend"
     ],
-    "author": "Ijs Agroallied & Farm Multilinks Ltd",
+    "author": "MV Agricultural Consult",
     "license": "proprietary",
     "devDependencies": {},
     "dependencies": {}

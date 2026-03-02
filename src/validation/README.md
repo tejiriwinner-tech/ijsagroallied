@@ -277,4 +277,4 @@ When adding new validation checks:
 
 ## License
 
-Proprietary - Ijs Agroallied & Farm Multilinks Ltd
+Proprietary - MV Agricultural Consult

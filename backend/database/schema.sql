@@ -1,5 +1,5 @@
 -- ============================================================================
--- Ijs Agroallied & Farm Multilinks Ltd - Complete Database Schema
+-- MV Agricultural Consult - Complete Database Schema
 -- ============================================================================
 -- This is the MASTER schema file - all other schema files are deprecated
 -- Run this SQL to set up your complete MySQL database with all tables and data
@@ -11,8 +11,8 @@
 -- ============================================================================
 
 -- Create and use database
-CREATE DATABASE IF NOT EXISTS ijs_agroallied CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE ijs_agroallied;
+CREATE DATABASE IF NOT EXISTS mv_agricultural_consult CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE mv_agricultural_consult;
 
 -- ============================================================================
 -- CREATE TABLES
@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS password_resets (
 
 -- Insert default admin user (password: admin123)
 INSERT IGNORE INTO users (id, email, password, name, role) VALUES 
-('admin-1', 'admin@ijs.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin', 'admin');
+('admin-1', 'admin@mvagriculturalconsult.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin', 'admin');
 
 -- Insert test user for password reset testing (password: testpass123)
 INSERT IGNORE INTO users (id, email, password, name, role) VALUES 
@@ -234,18 +234,18 @@ INSERT IGNORE INTO products (id, name, description, price, image, category, subc
 -- ============================================================================
 
 SELECT 'Database setup complete!' AS message;
-SELECT 'Tables created' AS status, COUNT(*) as count FROM information_schema.tables WHERE table_schema = 'ijs_agroallied';
+SELECT 'Tables created' AS status, COUNT(*) as count FROM information_schema.tables WHERE table_schema = 'mv_agricultural_consult';
 
 SELECT * FROM (
-    SELECT 'Users' as TableName, COUNT(*) as RecordCount FROM ijs_agroallied.users
+    SELECT 'Users' as TableName, COUNT(*) as RecordCount FROM mv_agricultural_consult.users
     UNION ALL
-    SELECT 'Categories', COUNT(*) FROM ijs_agroallied.categories
+    SELECT 'Categories', COUNT(*) FROM mv_agricultural_consult.categories
     UNION ALL
-    SELECT 'Subcategories', COUNT(*) FROM ijs_agroallied.subcategories
+    SELECT 'Subcategories', COUNT(*) FROM mv_agricultural_consult.subcategories
     UNION ALL
-    SELECT 'Products', COUNT(*) FROM ijs_agroallied.products
+    SELECT 'Products', COUNT(*) FROM mv_agricultural_consult.products
     UNION ALL
-    SELECT 'Chick Batches', COUNT(*) FROM ijs_agroallied.chick_batches
+    SELECT 'Chick Batches', COUNT(*) FROM mv_agricultural_consult.chick_batches
 ) AS table_counts
 LIMIT 0, 25;
 
@@ -255,6 +255,6 @@ LIMIT 0, 25;
 -- Your database is now ready to use!
 -- 
 -- Default Admin Login:
--- Email: admin@ijs.com
+-- Email: admin@mvagriculturalconsult.com
 -- Password: admin123
 -- ============================================================================

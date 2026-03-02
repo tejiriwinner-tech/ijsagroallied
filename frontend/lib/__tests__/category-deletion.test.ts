@@ -16,7 +16,7 @@
  * 
  * To run this test:
  * 1. Ensure backend server is running
- * 2. Ensure test database exists (ijs_agroallied_test or ijs_agroallied)
+ * 2. Ensure test database exists (mv_agricultural_consult_test or mv_agricultural_consult)
  * 3. Create test admin user (see setup instructions below)
  * 4. Set environment variable: TEST_INTEGRATION=true
  * 
