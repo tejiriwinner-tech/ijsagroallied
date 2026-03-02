@@ -43,7 +43,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
               <img
-                src="/ijslogo.png"
+                src="/m&vlogo.png"
                 alt="MV Agricultural Consult Logo"
                 className="w-12 h-12 object-contain"
               />

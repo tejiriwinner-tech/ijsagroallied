@@ -43,8 +43,8 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center p-2">
                 <img
-                  src="/ijslogo.png"
-                  alt="IJS Logo"
+                  src="/m&vlogo.png"
+                  alt="MV Agricultural Consult Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
