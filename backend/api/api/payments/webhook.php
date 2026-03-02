@@ -10,12 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $input = file_get_contents('php://input');
 $event = json_decode($input);
 
-// Flutterwave sends a secret hash in the header to verify the request
-$secretHash = FLUTTERWAVE_SECRET_KEY; // Or a custom hash set in Flutterwave dashboard
-$headerHash = isset($_SERVER['HTTP_VERIF_HASH']) ? $_SERVER['HTTP_VERIF_HASH'] : '';
+// Paystack sends its signature in the X-Paystack-Signature header
+$paystackSignature = isset($_SERVER['HTTP_X_PAYSTACK_SIGNATURE']) ? $_SERVER['HTTP_X_PAYSTACK_SIGNATURE'] : '';
+$computedSignature = hash_hmac('sha512', $input, PAYSTACK_SECRET_KEY);
 
-if (!$headerHash || $headerHash !== $secretHash) {
-    // This request is not from Flutterwave or hash mismatch
+if (!$paystackSignature || $paystackSignature !== $computedSignature) {
+    // This request is not from Paystack or signature mismatch
     http_response_code(401);
     exit;
 }
@@ -23,9 +23,9 @@ if (!$headerHash || $headerHash !== $secretHash) {
 http_response_code(200); // Acknowledge receipt immediately
 
 // Handle the event
-if ($event->event === 'charge.completed' && $event->data->status === 'successful') {
-    $reference = $event->data->tx_ref;
-    $amount = $event->data->amount;
+if ($event->event === 'charge.success' && $event->data->status === 'success') {
+    $reference = $event->data->reference;
+    $amount = $event->data->amount / 100; // Paystack sends amount in kobo
 
     $database = new Database();
     $db = $database->getConnection();
@@ -36,7 +36,7 @@ if ($event->event === 'charge.completed' && $event->data->status === 'successful
     $order = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$order) {
-        // Robustness: Create order if it doesn't exist (e.g. timeout on redirect)
+        // Robustness: Log if order not found (e.g. timeout on redirect)
         error_log("Payment success webhook received for reference: " . $reference . " but order not found.");
     } else {
         // Update status if needed

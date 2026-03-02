@@ -226,7 +226,7 @@ export default function CartPage() {
                 )}
               </Button>
 
-              <p className="text-xs text-foreground text-center mt-4">Secure payment powered by Flutterwave</p>
+              <p className="text-xs text-foreground text-center mt-4">Secure payment powered by Paystack</p>
             </div>
           </div>
         </div>

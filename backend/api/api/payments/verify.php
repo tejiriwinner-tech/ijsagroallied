@@ -1,11 +1,11 @@
 <?php
 require_once '../../config/cors.php';
 require_once '../../config/database.php';
-require_once '../../config/flutterwave.php';
+require_once '../../config/paystack.php';
 
 $database = new Database();
 $db = $database->getConnection();
-$flutterwave = new Flutterwave();
+$paystack = new Paystack();
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -15,21 +15,21 @@ if ($method !== 'GET') {
     exit;
 }
 
-$transaction_id = isset($_GET['transaction_id']) ? $_GET['transaction_id'] : (isset($_GET['reference']) ? $_GET['reference'] : null);
+$transaction_id = isset($_GET['reference']) ? $_GET['reference'] : (isset($_GET['transaction_id']) ? $_GET['transaction_id'] : null);
 
 if (!$transaction_id) {
     http_response_code(400);
-    echo json_encode(["success" => false, "message" => "Missing transaction ID"]);
+    echo json_encode(["success" => false, "message" => "Missing transaction reference"]);
     exit;
 }
 
-$result = $flutterwave->verifyTransaction($transaction_id);
+$result = $paystack->verifyTransaction($transaction_id);
 
-if ($result && isset($result['status']) && $result['status'] && $result['data']['status'] === 'successful') {
+if ($result && isset($result['status']) && $result['status'] && $result['data']['status'] === 'success') {
     $metadata = $result['data']['metadata'];
     $userId = $metadata['userId'];
     $items = $metadata['items'];
-    $total = $result['data']['amount']; // Flutterwave amount is already in main unit
+    $total = $result['data']['amount'] / 100; // Paystack returns amount in kobo, convert to naira
 
     // Create order in database
     try {

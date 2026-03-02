@@ -1,11 +1,11 @@
 <?php
 require_once '../../config/cors.php';
 require_once '../../config/database.php';
-require_once '../../config/flutterwave.php';
+require_once '../../config/paystack.php';
 
 $database = new Database();
 $db = $database->getConnection();
-$flutterwave = new Flutterwave();
+$paystack = new Paystack();
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -28,7 +28,7 @@ $amount = $data['amount'];
 $callback_url = $data['callback_url'];
 $metadata = isset($data['metadata']) ? $data['metadata'] : [];
 
-$result = $flutterwave->initializeTransaction($email, $amount, $callback_url, $metadata);
+$result = $paystack->initializeTransaction($email, $amount, $callback_url, $metadata);
 
 if ($result && isset($result['status']) && $result['status']) {
     echo json_encode([
