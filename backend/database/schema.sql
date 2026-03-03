@@ -10,9 +10,6 @@
 --   C:\xampp\mysql\bin\mysql.exe -u root < c:\xampp\htdocs\ijsagroallied\backend\database\schema.sql
 -- ============================================================================
 
--- Create and use database
-CREATE DATABASE IF NOT EXISTS mv_agricultural_consult CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE mv_agricultural_consult;
 
 -- ============================================================================
 -- CREATE TABLES
@@ -229,26 +226,9 @@ INSERT IGNORE INTO products (id, name, description, price, image, category, subc
 ('batch-cockerel-jan', 'Day-Old Chicks - Cockerel', 'Hardy local cockerels for meat production', 450.00, '/cockerel.png', 'day-old-chicks', NULL, 1000000, 'chicks'),
 ('batch-noiler-jan', 'Day-Old Chicks - Noiler', 'Dual-purpose Noiler birds - meat and eggs', 650.00, '/noiler.png', 'day-old-chicks', NULL, 1000000, 'chicks');
 
+
 -- ============================================================================
--- VERIFICATION QUERIES
--- ============================================================================
-
-SELECT 'Database setup complete!' AS message;
-SELECT 'Tables created' AS status, COUNT(*) as count FROM information_schema.tables WHERE table_schema = 'mv_agricultural_consult';
-
-SELECT * FROM (
-    SELECT 'Users' as TableName, COUNT(*) as RecordCount FROM mv_agricultural_consult.users
-    UNION ALL
-    SELECT 'Categories', COUNT(*) FROM mv_agricultural_consult.categories
-    UNION ALL
-    SELECT 'Subcategories', COUNT(*) FROM mv_agricultural_consult.subcategories
-    UNION ALL
-    SELECT 'Products', COUNT(*) FROM mv_agricultural_consult.products
-    UNION ALL
-    SELECT 'Chick Batches', COUNT(*) FROM mv_agricultural_consult.chick_batches
-) AS table_counts
-LIMIT 0, 25;
-
+-- DONE!
 -- ============================================================================
 -- DONE!
 -- ============================================================================
