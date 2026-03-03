@@ -282,9 +282,8 @@ function validateImageUpload($file)
         return ['valid' => false, 'error' => 'File too large'];
     }
 
-    $finfo = finfo_open(FILEINFO_MIME_TYPE);
-    $mimeType = finfo_file($finfo, $file['tmp_name']);
-    finfo_close($finfo);
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mimeType = $finfo->file($file['tmp_name']);
 
     if (!in_array($mimeType, ALLOWED_IMAGE_TYPES)) {
         return ['valid' => false, 'error' => 'Invalid file type'];
