@@ -3,10 +3,16 @@
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { categories } from "@/lib/data"
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, ChevronUp } from "lucide-react"
+import { MapPin, Phone, Mail, Facebook, Instagram, Music as Tiktok, ChevronUp } from "lucide-react"
+import { settingsApi } from "@/lib/api"
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false)
+  const [socialLinks, setSocialLinks] = useState({
+    facebook: "#",
+    instagram: "#",
+    tiktok: "#"
+  })
   const footerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -24,6 +30,24 @@ export default function Footer() {
     }
 
     return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await settingsApi.getAll()
+        if (response.success && response.data) {
+          setSocialLinks({
+            facebook: response.data.facebook_link || "#",
+            instagram: response.data.instagram_link || "#",
+            tiktok: response.data.tiktok_link || "#"
+          })
+        }
+      } catch (error) {
+        console.error("Error fetching social links:", error)
+      }
+    }
+    fetchSettings()
   }, [])
 
   const scrollToTop = () => {
@@ -59,22 +83,28 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href={socialLinks.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
               >
-                <Twitter className="w-5 h-5" />
+                <Tiktok className="w-5 h-5" />
               </a>
             </div>
           </div>

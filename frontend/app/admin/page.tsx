@@ -34,8 +34,12 @@ import {
   ShieldCheck,
   Phone,
   Camera,
-  ShoppingCart
+  ShoppingCart,
+  Music as Tiktok,
+  Facebook,
+  Instagram
 } from 'lucide-react'
+import { settingsApi } from "@/lib/api"
 
 function AdminProfileSettings({ addToast }: { addToast: (m: string, t?: "success" | "error" | "info") => void }) {
   const { user, updateProfile } = useAuth()
@@ -211,6 +215,112 @@ function AdminPasswordSettings({ addToast }: { addToast: (m: string, t?: any) =>
           </div>
           <Button type="submit" className="w-full mt-4" disabled={isUpdating}>
             {isUpdating ? "Updating..." : "Update Password"}
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
+  )
+}
+function SocialMediaSettings({ addToast }: { addToast: (m: string, t?: any) => void }) {
+  const [links, setLinks] = useState({
+    facebook_link: "",
+    instagram_link: "",
+    tiktok_link: ""
+  })
+  const [isLoading, setIsLoading] = useState(true)
+  const [isUpdating, setIsUpdating] = useState(false)
+
+  useEffect(() => {
+    const fetchLinks = async () => {
+      try {
+        const response = await settingsApi.getAll()
+        if (response.success && response.data) {
+          setLinks({
+            facebook_link: response.data.facebook_link || "",
+            instagram_link: response.data.instagram_link || "",
+            tiktok_link: response.data.tiktok_link || ""
+          })
+        }
+      } catch (error) {
+        addToast("Failed to load social links", "error")
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchLinks()
+  }, [])
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsUpdating(true)
+    try {
+      const response = await settingsApi.update(links)
+      if (response.success) {
+        addToast("Social media links updated", "success")
+      } else {
+        addToast(response.message || "Failed to update links", "error")
+      }
+    } catch (error) {
+      addToast("An error occurred", "error")
+    }
+    setIsUpdating(false)
+  }
+
+  if (isLoading) {
+    return (
+      <Card>
+        <CardContent className="p-8 flex justify-center">
+          <div className="animate-spin w-6 h-6 border-2 border-primary border-t-transparent rounded-full" />
+        </CardContent>
+      </Card>
+    )
+  }
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Tiktok className="w-5 h-5 text-primary" />
+          Social Media Links
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="facebook-link" className="flex items-center gap-2">
+              <Facebook className="w-4 h-4 text-blue-600" /> Facebook Link
+            </Label>
+            <Input
+              id="facebook-link"
+              placeholder="https://facebook.com/..."
+              value={links.facebook_link}
+              onChange={(e) => setLinks({ ...links, facebook_link: e.target.value })}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="instagram-link" className="flex items-center gap-2">
+              <Instagram className="w-4 h-4 text-pink-600" /> Instagram Link
+            </Label>
+            <Input
+              id="instagram-link"
+              placeholder="https://instagram.com/..."
+              value={links.instagram_link}
+              onChange={(e) => setLinks({ ...links, instagram_link: e.target.value })}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="tiktok-link" className="flex items-center gap-2">
+              <Tiktok className="w-4 h-4 text-foreground" /> TikTok Link
+            </Label>
+            <Input
+              id="tiktok-link"
+              placeholder="https://tiktok.com/@..."
+              value={links.tiktok_link}
+              onChange={(e) => setLinks({ ...links, tiktok_link: e.target.value })}
+            />
+          </div>
+          <Button type="submit" className="w-full mt-2" disabled={isUpdating}>
+            {isUpdating ? "Saving..." : "Save Social Links"}
           </Button>
         </form>
       </CardContent>
@@ -699,8 +809,13 @@ function AdminDashboardContent() {
 
           {activeTab === "settings" && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <AdminProfileSettings addToast={addToast} />
-              <AdminPasswordSettings addToast={addToast} />
+              <div className="space-y-8">
+                <AdminProfileSettings addToast={addToast} />
+                <AdminPasswordSettings addToast={addToast} />
+              </div>
+              <div className="space-y-8">
+                <SocialMediaSettings addToast={addToast} />
+              </div>
             </div>
           )}
         </main>

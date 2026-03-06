@@ -189,8 +189,8 @@ export default function LoginPage() {
           <div className="text-center mb-8">
             <div className="w-24 h-24 mx-auto mb-4">
               <img
-                src="/ijslogo.png"
-                alt="IJS Logo"
+                src="/m%26vlogo.png"
+                alt="M&V Logo"
                 className="w-full h-full object-contain"
               />
             </div>

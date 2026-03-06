@@ -1,6 +1,7 @@
 <?php
 // CORS headers - Allow Next.js frontend to access this API
-header("Access-Control-Allow-Origin: *");
+$allowedOrigins = getenv('CORS_ALLOWED_ORIGINS') ?: '*';
+header("Access-Control-Allow-Origin: $allowedOrigins");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Max-Age: 3600");

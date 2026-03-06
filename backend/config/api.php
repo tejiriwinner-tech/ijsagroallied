@@ -319,7 +319,7 @@ function handleFileUpload($file, $directory = 'products')
 }
 
 // Initialize error logging
-if (APP_DEBUG) {
+if (defined('APP_ENV') && APP_ENV === 'development' && defined('APP_DEBUG') && APP_DEBUG) {
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
 } else {

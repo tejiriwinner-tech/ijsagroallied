@@ -173,6 +173,13 @@ CREATE TABLE IF NOT EXISTS password_resets (
     INDEX idx_expires_at (expires_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Settings table for site-wide configuration
+CREATE TABLE IF NOT EXISTS settings (
+    `key` VARCHAR(100) PRIMARY KEY,
+    `value` TEXT NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- ============================================================================
 -- INSERT SAMPLE DATA
 -- ============================================================================
@@ -226,6 +233,11 @@ INSERT IGNORE INTO products (id, name, description, price, image, category, subc
 ('batch-cockerel-jan', 'Day-Old Chicks - Cockerel', 'Hardy local cockerels for meat production', 450.00, '/cockerel.png', 'day-old-chicks', NULL, 1000000, 'chicks'),
 ('batch-noiler-jan', 'Day-Old Chicks - Noiler', 'Dual-purpose Noiler birds - meat and eggs', 650.00, '/noiler.png', 'day-old-chicks', NULL, 1000000, 'chicks');
 
+-- Insert initial settings
+INSERT IGNORE INTO settings (`key`, `value`) VALUES 
+('facebook_link', '#'),
+('instagram_link', '#'),
+('tiktok_link', '#');
 
 -- ============================================================================
 -- DONE!

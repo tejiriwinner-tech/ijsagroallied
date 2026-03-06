@@ -131,6 +131,16 @@ export const authApi = {
     }),
 }
 
+// Settings API
+export const settingsApi = {
+  getAll: () => fetchApi<Record<string, string>>("/settings/get.php"),
+  update: (settings: Record<string, string>) =>
+    fetchApi<{ message: string }>("/settings/update.php", {
+      method: "POST",
+      body: JSON.stringify(settings),
+    }),
+}
+
 // Orders API
 export const ordersApi = {
   getAll: (userId?: string) => {
